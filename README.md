@@ -14,7 +14,7 @@ In order to use it, create a component class using [angular2-now](https://github
 Then, call the `super` constructor, sending `arguments`
 
 For example:
-```
+```js
   let {Component, View, Inject, SetModule} = angular2now;
   
   SetModule('myApp');
