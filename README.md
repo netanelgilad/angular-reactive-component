@@ -3,6 +3,7 @@
 This components represents a ECMAScript6 class which can be used as a base class for creating reactive components using AngularJS, Meteor and [Angular-Meteor](angular-meteor.com) project.
 
 The purpose of this component are:
+
 1. Remove the need to inject `$reactive` and `$scope`
 2. Remove the need to call `$reactive(this).attach($scope)` when working with Angular-Meteor with components and `controllerAs`.
 3. Remove the need to put your injectables on `this` inside your constructor for each service.
