@@ -8,8 +8,8 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.2.1');
-  api.use('angular', 'client');
-  api.use('pbastowski:angular2-now', 'client');
+  api.use('angular@1.3.0', 'client');
+  api.use('pbastowski:angular2-now@1.0.1', 'client');
   api.use('pbastowski:angular-babel@1.0.6', 'client');
   api.addFiles('angular-reactive-component.js', 'client');
 
