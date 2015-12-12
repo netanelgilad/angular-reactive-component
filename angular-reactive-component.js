@@ -1,14 +1,10 @@
 ReactiveComponent = (function() {
   let {Inject} = angular2now;
 
-
-  let STRIP_COMMENTS = /((\/\/.*$)|(\/\*[\s\S]*?\*\/))/mg;
-  let ARGUMENT_NAMES = /([^\s,]+)/g;
-
   @Inject(['$scope', '$reactive'])
   class ReactiveComponent {
     constructor(childArgs) {
-      if (childArgs && childArgs.length > 0 && childArgs.callee && childArgs.callee.$inject) {
+      if (childArgs && childArgs.length > 0 && childArgs.callee && childArgs.callee.$inject && angular.isArray(childArgs.callee.$inject)) {
         childArgs.callee.$inject.forEach((injected, i) => {
           this[injected] = childArgs[i];
         });

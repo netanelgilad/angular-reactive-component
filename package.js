@@ -1,6 +1,6 @@
 Package.describe({
   name: 'dotansimha:angular-reactive-component',
-  version: '0.0.2',
+  version: '0.0.3',
   summary: 'Angular-Meteor ES6 base class for creating reactive component',
   git: 'https://github.com/dotansimha/angular-reactive-component',
   documentation: 'README.md'
