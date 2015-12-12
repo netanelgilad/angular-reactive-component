@@ -8,24 +8,13 @@ ReactiveComponent = (function() {
   @Inject(['$scope', '$reactive'])
   class ReactiveComponent {
     constructor(childArgs) {
-      if (childArgs && childArgs.length > 0) {
-        let func = childArgs.callee;
-        let fnStr = func.toString().replace(STRIP_COMMENTS, '');
-        let result = fnStr.slice(fnStr.indexOf('(') + 1, fnStr.indexOf(')')).match(ARGUMENT_NAMES);
+      if (childArgs && childArgs.length > 0 && childArgs.callee && childArgs.callee.$inject) {
+        childArgs.callee.$inject.forEach((injected, i) => {
+          this[injected] = childArgs[i];
+        });
 
-        if (result === null)
-          result = [];
-
-        for (let i = 0; i < result.length; i++) {
-          this[result[i]] = childArgs[i];
-        }
-
-        if (childArgs[childArgs.length - 2].constructor.toString().indexOf('Scope') > -1) {
-          this.$scope = childArgs[childArgs.length - 2];
-        }
-
-        if (childArgs[childArgs.length - 1].toString().indexOf('ReactiveContext') > -1) {
-          this.$reactive = childArgs[childArgs.length - 1];
+        if (this.$reactive && this.$scope) {
+          this.$reactive(this).attach(this.$scope);
         }
       }
     }
