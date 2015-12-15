@@ -34,32 +34,32 @@ ReactiveComponent = (function() {
       this.$scope.stopOnDestroy(stoppable);
     }
 
-    $watch() {
-      return this.$scope.$watch.apply(arguments);
+    $watch(...args) {
+      return this.$scope.$watch.apply(this.$scope, args);
     }
 
-    $watchGroup() {
-      return this.$scope.$watchGroup.apply(arguments);
+    $watchGroup(...args) {
+      return this.$scope.$watchGroup.apply(this.$scope, args);
     }
 
-    $watchCollection() {
-      return this.$scope.$watchCollection.apply(arguments);
+    $watchCollection(...args) {
+      return this.$scope.$watchCollection.apply(this.$scope, args);
     }
 
-    $on() {
-      return this.$scope.$on.apply(arguments);
+    $on(...args) {
+      return this.$scope.$on.apply(this.$scope, args);
     }
 
-    $emit() {
-      return this.$scope.$emit.apply(arguments);
+    $emit(...args) {
+      return this.$scope.$emit.apply(this.$scope, args);
     }
 
-    $broadcast() {
-      return this.$scope.$broadcast.apply(arguments);
+    $broadcast(...args) {
+      return this.$scope.$broadcast.apply(this.$scope, args);
     }
 
-    $destroy() {
-      return this.$scope.$destroy.apply(arguments);
+    $destroy(...args) {
+      return this.$scope.$destroy.apply(this.$scope, args);
     }
   }
 
